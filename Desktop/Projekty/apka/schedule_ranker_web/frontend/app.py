@@ -154,3 +154,16 @@ else:
     if st.button("Pomiń tę parę (weź nową)"):
         st.session_state.pair = None
         st.rerun()
+
+st.divider()
+st.subheader("📊 Wszystkie odpowiedzi (debug)")
+
+if st.button("Pokaż odpowiedzi"):
+    try:
+        r = requests.get(f"{API}/answers")
+        if r.status_code == 200:
+            st.json(r.json())
+        else:
+            st.error(r.text)
+    except Exception as e:
+        st.error(e)
