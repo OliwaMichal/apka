@@ -1,16 +1,15 @@
 import os
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 
 from backend.db import get_db
 from backend.models import CreateUserRequest, AnswerRequest
 from backend.candidate_service import load_candidates
 from backend.pair_service import get_unseen_pair, mark_pair_as_shown
 
-# 1. Inicjalizacja FastAPI
 app = FastAPI()
 
-# 2. CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -19,17 +18,19 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# 3. Prosty testowy root endpoint
+# Klasa pomocnicza do odbierania imienia w formacie JSON
+class UserRequest(BaseModel):
+    name: str
+
 @app.get("/")
 def read_root():
-    return {"status": "Backend działa prawidłowo"}
+    return {"status": "Backend działa prawidłowo na porcie lokalnym kontenera"}
 
-# 4. Twoje endpointy (zostaw je tak jak były)
 @app.post("/user")
-def create_user(name: str):  # Zmiana na query param, bo tak wysyła Streamlit: params={"name": name}
+def create_user(req: UserRequest):
     conn = get_db()
     cur = conn.cursor()
-    cur.execute("INSERT INTO users (name) VALUES (?)", (name,))
+    cur.execute("INSERT INTO users (name) VALUES (?)", (req.name,))
     conn.commit()
     user_id = cur.lastrowid
     conn.close()
@@ -39,10 +40,10 @@ def create_user(name: str):  # Zmiana na query param, bo tak wysyła Streamlit: 
 def get_pair(user_id: int):
     candidates = load_candidates()
     if len(candidates) < 2:
-        raise HTTPException(404, "Za mało kandydatów w bazie.")
+        raise HTTPException(404, "Za mało kandydatów w bazie danych.")
     pair = get_unseen_pair(user_id, candidates)
     if pair is None:
-        raise HTTPException(404, "Brak nowych par.")
+        raise HTTPException(404, "Brak nowych par dla tego użytkownika.")
     left, right = pair
     mark_pair_as_shown(user_id, left["id"], right["id"])
     return {"left": left, "right": right}
