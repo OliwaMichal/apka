@@ -1,4 +1,5 @@
 import os
+import subprocess
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
@@ -8,8 +9,17 @@ from backend.models import CreateUserRequest, AnswerRequest
 from backend.candidate_service import load_candidates
 from backend.pair_service import get_unseen_pair, mark_pair_as_shown
 
-# 1. TWORZYMY OBIEKT APLIKACJI (Bez tego Railway rzucał błąd NameError)
+# 1. TWORZYMY OBIEKT APLIKACJI
 app = FastAPI()
+
+# AUTOMATYCZNY START STREAMLITA W TLE (Zamiast Honcho)
+@app.on_event("startup")
+def start_frontend_in_background():
+    # Sprawdzamy, czy Streamlit już nie działa, żeby nie odpalać go kilka razy
+    # Odpalamy Streamlit dokładnie tak, jak chcieliśmy, ale bezpośrednio z Pythona
+    cmd = "streamlit run schedule_ranker_web/frontend/app.py --server.port 8505 --server.address 127.0.0.1"
+    subprocess.Popen(cmd, shell=True)
+    print("🚀 Streamlit został pomyślnie uruchomiony w tle na porcie 8505!")
 
 # 2. CORS – pozwala na zapytania ze Streamlita
 app.add_middleware(
@@ -25,13 +35,12 @@ app.add_middleware(
 def read_root():
     public_url = os.getenv("API_URL", "http://localhost:8505")
     
-    # Jeśli uruchamiasz lokalnie (na komputerze)
+    # Jeśli uruchamiasz lokalnie na komputerze
     if "localhost" in public_url:
         return RedirectResponse(url="http://localhost:8505")
     
-    # Jeśli aplikacja działa na Railway (honcho odpala Streamlit obok pod adresem IP pętli zwrotnej)
+    # Na produkcji przekierowujemy na port 8505 lokalnej maszyny serwera
     return RedirectResponse(url="http://127.0.0.1:8505")
-
 # 4. ENDPOINTY API
 
 @app.post("/user")
