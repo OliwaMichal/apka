@@ -4,6 +4,7 @@ import requests
 import sys
 import subprocess
 import time
+import json  # 🔥 Dodany import do formatowania JSON-a
 from pathlib import Path
 
 # ==========================================
@@ -127,7 +128,7 @@ else:
                 st.session_state.pair = None
                 st.rerun()
             else:
-                st.error(f"Błąd zapisu danych: {resp.text}")
+                st.error(f"Błąd zapisania danych: {resp.text}")
         except Exception as e:
             st.error(f"Błąd: {e}")
 
@@ -136,7 +137,10 @@ else:
         st.rerun()
 
 st.divider()
-st.subheader("📊 Wszystkie odpowiedzi (z cechami planów)")
+# ==========================================
+# 📊 ZMIENIONA SEKCJA WYŚWIETLANIA JSON-a
+# ==========================================
+st.subheader("📊 Wszystkie odpowiedzi (Surowy plik JSON)")
 
 if st.button("Pokaż odpowiedzi"):
     try:
@@ -144,27 +148,11 @@ if st.button("Pokaż odpowiedzi"):
         if r.status_code == 200:
             data = r.json()
             if data:
-                for ans in data:
-                    with st.expander(f"Odpowiedź #{ans['id']} | Użytkownik {ans['user_id']} | Wybrano {ans['choice']} (siła: {ans['strength']})"):
-                        col_left, col_right = st.columns(2)
-                        with col_left:
-                            st.markdown("**Lewy plan**")
-                            if ans.get("left_candidate"):
-                                lc = ans["left_candidate"]
-                                st.write(f"ID: {lc['id']}, profil: {lc['profile']}")
-                                # Wyświetl wybrane kluczowe metryki (możesz dodać wszystkie)
-                                metrics = ["gaps1", "gaps2p", "campus_switch_0", "dayoff_count", "friday_penalty", "monday_bonus", "daily_load_variance"]
-                                st.json({m: lc.get(m) for m in metrics})
-                            else:
-                                st.write("Brak danych")
-                        with col_right:
-                            st.markdown("**Prawy plan**")
-                            if ans.get("right_candidate"):
-                                rc = ans["right_candidate"]
-                                st.write(f"ID: {rc['id']}, profil: {rc['profile']}")
-                                st.json({m: rc.get(m) for m in metrics})
-                            else:
-                                st.write("Brak danych")
+                # Zamieniamy obiekt Pythona na czytelny tekst w formacie JSON z wcięciami
+                raw_json = json.dumps(data, indent=4, ensure_ascii=False)
+                
+                # Wyświetlamy jako blok kodu z wbudowaną opcją kopiowania 📋
+                st.code(raw_json, language="json")
             else:
                 st.info("Brak odpowiedzi w bazie.")
         else:
