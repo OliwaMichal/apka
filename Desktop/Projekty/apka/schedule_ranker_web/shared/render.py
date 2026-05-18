@@ -1,7 +1,25 @@
-from typing import Dict, Tuple, List
-
-# ... (tutaj zostaje cała reszta Twojego dotychczasowego kodu, np. definicja render_grid_html)
+from typing import List, Dict
 import html
+
+def dedup_tiles(activities):
+    seen = set()
+    result = []
+
+    for a in activities:
+        key = (
+            a.get("subject", ""),
+            a.get("room", ""),
+            tuple(a.get("teachers", []))
+        )
+
+        if key not in seen:
+            seen.add(key)
+            result.append(a)
+
+    return result
+
+
+
 
 def pick_type_tag(tags: List[str], subject: str = "") -> str:
     tags_u = [str(x).strip().upper() for x in (tags or [])]
