@@ -588,17 +588,33 @@ def generate_synthetic_candidate(idx: int, base_activities: List[dict], rng: ran
     rng.shuffle(candidate_slots)
     chosen_slots = candidate_slots[:n_items]
 
-    # DODANIE MUTACJI (NOISE) - 15% szans na losowy slot
+    # DODANIE MUTACJI (NOISE) - 15% szans na losowy slot, ale bez duplikatów
     mutation_prob = 0.15
     for idx_slot in range(len(chosen_slots)):
         if rng.random() < mutation_prob:
-            chosen_slots[idx_slot] = (
-                rng.choice(DAYS),
-                rng.randrange(len(HOURS))
-            )
+            # Losuj nowy slot, dopóki nie będzie unikalny w chosen_slots
+            new_day = rng.choice(DAYS)
+            new_hour_idx = rng.randrange(len(HOURS))
+            new_slot = (new_day, new_hour_idx)
+            # Sprawdź czy nowy slot nie jest już użyty w innych indeksach
+            while new_slot in chosen_slots[:idx_slot] + chosen_slots[idx_slot+1:]:
+                new_day = rng.choice(DAYS)
+                new_hour_idx = rng.randrange(len(HOURS))
+                new_slot = (new_day, new_hour_idx)
+            chosen_slots[idx_slot] = new_slot
+
+    # Używamy zbioru do śledzenia już wykorzystanych slotów (unikamy duplikatów w cell_map)
+    used_slots = set()
 
     for k, base_item in enumerate(base_activities):
         d, sidx = chosen_slots[k]
+        key = (d, HOURS[sidx])
+
+        # Jeśli ten slot został już wykorzystany przez poprzednią aktywność – pomijamy
+        if key in used_slots:
+            continue
+
+        used_slots.add(key)
 
         if profile in {"alternating_campus", "campus_mixed"}:
             campus = "C1" if (k % 2 == 0) else "C2"
@@ -606,7 +622,9 @@ def generate_synthetic_candidate(idx: int, base_activities: List[dict], rng: ran
             campus = rng.choice(["C1", "C1", "C1", "C2"])
 
         act = _make_activity_from_base(base_item, idx, d, sidx, rng, campus)
-        cell_map[(d, HOURS[sidx])].append(act)
+
+        # NADPISUJEMY (zamiast append) – w slocie będzie tylko jedna aktywność
+        cell_map[key] = [act]
 
     return {
         "candidate_id": f"SYNTH::{idx:03d}",
