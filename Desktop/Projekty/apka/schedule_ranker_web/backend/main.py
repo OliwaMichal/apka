@@ -6,14 +6,19 @@ from backend.models import CreateUserRequest, AnswerRequest
 from backend.candidate_service import load_candidates
 from backend.pair_service import get_unseen_pair, mark_pair_as_shown
 
-app = FastAPI()
-
-from fastapi.responses import RedirectResponse  # <-- Dodaj na samej górze pliku
+import os
+from fastapi.responses import RedirectResponse
 
 @app.get("/")
 def read_root():
-    # Przekierowujemy ruch ze strony głównej na port Streamlita (8505)
-    return RedirectResponse(url="http://localhost:8505")
+    # Pobieramy publiczny adres z Railway. Jeśli go nie ma, używamy localhost (na Twoim komputerze)
+    public_url = os.getenv("API_URL", "http://localhost:8505")
+    
+    # Jeśli jesteśmy na Railway, Streamlit działa pod tym samym adresem (dzięki honcho)
+    # Jeśli jesteśmy lokalnie, przekieruje na port 8505
+    if "localhost" in public_url:
+        return RedirectResponse(url="http://localhost:8505")
+    return RedirectResponse(url=public_url)
 
 # CORS – pozwól na requesty z frontendu (Streamlit Cloud)
 app.add_middleware(
