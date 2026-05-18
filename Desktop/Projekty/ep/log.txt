@@ -1,0 +1,2 @@
+foo; args: 1=1, 2=2; kwargs: c=3; execution time: 0.13 sec.
+foo; a=1, b=2, c=3; execution time: 0.13 sec.
