@@ -8,6 +8,13 @@ from backend.pair_service import get_unseen_pair, mark_pair_as_shown
 
 app = FastAPI()
 
+from fastapi.responses import RedirectResponse  # <-- Dodaj na samej górze pliku
+
+@app.get("/")
+def read_root():
+    # Przekierowujemy ruch ze strony głównej na port Streamlita (8505)
+    return RedirectResponse(url="http://localhost:8505")
+
 # CORS – pozwól na requesty z frontendu (Streamlit Cloud)
 app.add_middleware(
     CORSMiddleware,
