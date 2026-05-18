@@ -1,4 +1,6 @@
-from typing import List, Dict
+from typing import Dict, Tuple, List
+
+# ... (tutaj zostaje cała reszta Twojego dotychczasowego kodu, np. definicja render_grid_html)
 import html
 
 def pick_type_tag(tags: List[str], subject: str = "") -> str:
