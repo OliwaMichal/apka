@@ -1,42 +1,61 @@
 import sqlite3
-import os
 from pathlib import Path
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+DATA_DIR = BASE_DIR / "data"
+DATA_DIR.mkdir(exist_ok=True)
+
+DB_PATH = DATA_DIR / "app.db"
+
 def get_db():
-    # Pobiera ścieżkę absolutną do katalogu głównego aplikacji (/app na Railway)
-    BASE_DIR = Path(__file__).resolve().parent.parent
-    
-    # Tworzymy bazę bezpośrednio w folderze głównym lub w dedykowanym data/
-    db_dir = os.path.join(BASE_DIR, "backend", "data")
-    os.makedirs(db_dir, exist_ok=True)
-    
-    db_path = os.path.join(db_dir, "app.db")
-    
-    conn = sqlite3.connect(db_path)
+    conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
-    
-    # 🛠️ AUTOMATYCZNA INICJALIZACJA TABEL (jeśli nie istnieją)
-    # Zapobiega to błędowi typu "no such table: users" na nowym serwerze
-    try:
-        cur = conn.cursor()
-        cur.execute("""
-            CREATE TABLE IF NOT EXISTS users (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                name TEXT NOT NULL
-            );
-        """)
-        cur.execute("""
-            CREATE TABLE IF NOT EXISTS answers (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                user_id INTEGER NOT NULL,
-                left_id TEXT NOT NULL,
-                right_id TEXT NOT NULL,
-                choice TEXT NOT NULL,
-                strength TEXT NOT NULL
-            );
-        """)
-        conn.commit()
-    except Exception as e:
-        print(f"Błąd inicjalizacji bazy danych: {e}")
-        
+
+    cur = conn.cursor()
+
+    # USERS
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL
+        )
+    """)
+
+    # ANSWERS
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS answers (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id INTEGER,
+            left_id TEXT,
+            right_id TEXT,
+            choice TEXT,
+            strength TEXT
+        )
+    """)
+
+    # CANDIDATES
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS candidates (
+            id TEXT PRIMARY KEY,
+            run TEXT,
+            profile TEXT,
+            days TEXT,
+            hours TEXT,
+            cell_map_json TEXT
+        )
+    """)
+
+    # SHOWN PAIRS
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS shown_pairs (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id INTEGER,
+            left_id TEXT,
+            right_id TEXT
+        )
+    """)
+
+    conn.commit()
+
     return conn

@@ -50,8 +50,8 @@ def load_candidates() -> List[Dict[str, Any]]:
             "id": r["id"],
             "run": r["run"],
             "profile": r["profile"],
-            "days": json.loads(r["days"]),
-            "hours": json.loads(r["hours"]),
-            "cell_map": cell_map
+            "days": json.loads(r["days"] or "[]"),
+            "hours": json.loads(r["hours"] or "[]"),
+            "cell_map": json.loads(r["cell_map_json"] or "{}")
         })
     return result
