@@ -1,27 +1,16 @@
 import os
-import subprocess
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import RedirectResponse
 
 from backend.db import get_db
 from backend.models import CreateUserRequest, AnswerRequest
 from backend.candidate_service import load_candidates
 from backend.pair_service import get_unseen_pair, mark_pair_as_shown
 
-# 1. TWORZYMY OBIEKT APLIKACJI
+# 1. Inicjalizacja FastAPI
 app = FastAPI()
 
-# AUTOMATYCZNY START STREAMLITA W TLE (Zamiast Honcho)
-@app.on_event("startup")
-def start_frontend_in_background():
-    # Sprawdzamy, czy Streamlit już nie działa, żeby nie odpalać go kilka razy
-    # Odpalamy Streamlit dokładnie tak, jak chcieliśmy, ale bezpośrednio z Pythona
-    cmd = "streamlit run schedule_ranker_web/frontend/app.py --server.port 8505 --server.address 127.0.0.1"
-    subprocess.Popen(cmd, shell=True)
-    print("🚀 Streamlit został pomyślnie uruchomiony w tle na porcie 8505!")
-
-# 2. CORS – pozwala na zapytania ze Streamlita
+# 2. CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -30,24 +19,17 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# 3. STRONA GŁÓWNA - Automatyczne przekierowanie na Streamlita
+# 3. Prosty testowy root endpoint
 @app.get("/")
 def read_root():
-    public_url = os.getenv("API_URL", "http://localhost:8505")
-    
-    # Jeśli uruchamiasz lokalnie na komputerze
-    if "localhost" in public_url:
-        return RedirectResponse(url="http://localhost:8505")
-    
-    # Na produkcji przekierowujemy na port 8505 lokalnej maszyny serwera
-    return RedirectResponse(url="http://127.0.0.1:8505")
-# 4. ENDPOINTY API
+    return {"status": "Backend działa prawidłowo"}
 
+# 4. Twoje endpointy (zostaw je tak jak były)
 @app.post("/user")
-def create_user(req: CreateUserRequest):
+def create_user(name: str):  # Zmiana na query param, bo tak wysyła Streamlit: params={"name": name}
     conn = get_db()
     cur = conn.cursor()
-    cur.execute("INSERT INTO users (name) VALUES (?)", (req.name,))
+    cur.execute("INSERT INTO users (name) VALUES (?)", (name,))
     conn.commit()
     user_id = cur.lastrowid
     conn.close()
@@ -57,15 +39,12 @@ def create_user(req: CreateUserRequest):
 def get_pair(user_id: int):
     candidates = load_candidates()
     if len(candidates) < 2:
-        raise HTTPException(404, "Za mało kandydatów w bazie (minimum 2).")
-
+        raise HTTPException(404, "Za mało kandydatów w bazie.")
     pair = get_unseen_pair(user_id, candidates)
     if pair is None:
-        raise HTTPException(404, "Brak nowych par dla tego użytkownika – wszystkie zostały już pokazane.")
-
+        raise HTTPException(404, "Brak nowych par.")
     left, right = pair
     mark_pair_as_shown(user_id, left["id"], right["id"])
-
     return {"left": left, "right": right}
 
 @app.post("/answer")
@@ -85,9 +64,6 @@ def get_progress(user_id: int):
     conn = get_db()
     cur = conn.cursor()
     cur.execute("SELECT COUNT(*) FROM answers WHERE user_id = ?", (user_id,))
-    answered = cur.fetchone()[0]
+    count = cur.fetchone()[0]
     conn.close()
-    
-    # POPRAWIONE: Zwracamy dokładnie strukturę {"answered": X, "total": Y},
-    # której Streamlit w app.py szuka poprzez `.get('answered', 0)`
-    return {"answered": answered, "total": 10}
+    return {"count": count}

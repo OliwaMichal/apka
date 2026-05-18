@@ -2,14 +2,26 @@ import os
 import streamlit as st
 import requests
 import sys
+import subprocess
+import time
 from pathlib import Path
+
+# AUTOMATYCZNY START BACKENDU W TLE
+@st.cache_resource
+def start_backend():
+    # Odpalamy uvicorn na porcie 8000 lokalnie
+    cmd = "uvicorn backend.main:app --host 127.0.0.1 --port 8000"
+    subprocess.Popen(cmd, shell=True)
+    time.sleep(2)  # Dajemy mu 2 sekundy na rozruch
+
+start_backend()
+
+# Adres API - skoro FastAPI działa na tym samym serwerze, pytamy lokalnie przez localhost
+API = "http://127.0.0.1:8000"
 
 # Dodaj shared do ścieżek
 sys.path.append(str(Path(__file__).parent.parent))
 from shared.render import render_grid_html
-
-# Pobierz URL API ze zmiennej środowiskowej
-API = os.getenv("API_URL", "http://localhost:8000")
 
 st.set_page_config(page_title="Schedule Ranker – Zbieranie preferencji", layout="wide")
 st.title("Porównywanie planów zajęć")
