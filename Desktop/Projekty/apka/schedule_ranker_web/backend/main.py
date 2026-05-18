@@ -217,3 +217,13 @@ def get_progress(user_id: int):
     conn.close()
 
     return {"count": count}
+
+@app.get("/answers")
+def get_answers():
+    conn = get_db()
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM answers")
+    rows = cur.fetchall()
+    conn.close()
+
+    return [dict(row) for row in rows]
