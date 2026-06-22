@@ -1,0 +1,18 @@
+# sekrety — NIGDY nie wgrywaj do GitHuba
+.streamlit/secrets.toml
+
+# lokalna baza SQLite (stara wersja)
+data/app.db
+*.db
+
+# środowisko Python
+__pycache__/
+*.pyc
+.env
+venv/
+.venv/
+
+# macOS / IDE
+.DS_Store
+.idea/
+.vscode/
