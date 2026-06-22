@@ -50,7 +50,7 @@ from fet_ltr import (
 # KONFIGURACJA
 # ─────────────────────────────────────────────────────────────────────────────
 
-st.set_page_config(layout="wide", page_title="Ranking Grup Laboratoryjnych")
+st.set_page_config(layout="wide", page_title="Preferencje Rozkładów Zajęć")
 
 DATA_DIR = Path(__file__).resolve().parent / "data"
 LAST_GEN = DATA_DIR / "last_generation.json"
@@ -194,7 +194,7 @@ def render_admin_panel():
 # EKRAN STARTOWY
 # ─────────────────────────────────────────────────────────────────────────────
 
-st.title("🎓 Ranking Grup Laboratoryjnych")
+st.title("📋 Preferencje Rozkładów Zajęć")
 st.caption(
     "Porównaj kilka planów zajęć, a system dopasuje najlepszą grupę "
     "laboratoryjną do Twoich preferencji."
