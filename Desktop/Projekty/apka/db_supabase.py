@@ -24,8 +24,8 @@ import json
 from contextlib import contextmanager
 from typing import Any, Dict, List, Optional
 
-import psycopg2
-import psycopg2.extras
+import psycopg as psycopg2
+import psycopg.rows
 import streamlit as st
 
 
@@ -53,7 +53,7 @@ create table if not exists answers (
 
 @contextmanager
 def get_conn():
-    conn = psycopg2.connect(st.secrets["SUPABASE_CONN_STRING"])
+    conn = psycopg2.connect(st.secrets["SUPABASE_CONN_STRING"], row_factory=psycopg.rows.dict_row)
     try:
         yield conn
     finally:
