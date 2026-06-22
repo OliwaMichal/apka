@@ -263,47 +263,53 @@ if pair_idx < MAX_TOTAL_PAIRS and pair_idx < len(pairs):
         hide_index=True, use_container_width=True,
     )
 
-    def _vote(choice: str, pref_value: float, strength: str):
+    st.markdown("#### Który plan bardziej Ci odpowiada?")
+    b1, b2, b3, b4, b5 = st.columns(5)
+    voted_choice = None
+    voted_pref   = None
+    voted_str    = None
+
+    with b1:
+        if st.button("⬅️⬅️ Zdecydowanie Plan A", use_container_width=True, key="vote_ll"):
+            voted_choice, voted_pref, voted_str = "left",  1.0,  "strong"
+    with b2:
+        if st.button("⬅️ Raczej Plan A",          use_container_width=True, key="vote_l"):
+            voted_choice, voted_pref, voted_str = "left",  0.75, "slight"
+    with b3:
+        if st.button("⚖️ Bez różnicy",             use_container_width=True, key="vote_eq"):
+            voted_choice, voted_pref, voted_str = "skip",  0.5,  "skip"
+    with b4:
+        if st.button("➡️ Raczej Plan B",            use_container_width=True, key="vote_r"):
+            voted_choice, voted_pref, voted_str = "right", 0.25, "slight"
+    with b5:
+        if st.button("➡️➡️ Zdecydowanie Plan B",   use_container_width=True, key="vote_rr"):
+            voted_choice, voted_pref, voted_str = "right", 0.0,  "strong"
+
+    if voted_choice is not None:
         ans = {
             "pair_idx":         pair_idx,
             "left_id":          left["candidate_id"],
             "right_id":         right["candidate_id"],
-            "choice":           choice,
-            "strength":         strength,
-            "preference_value": pref_value,
+            "choice":           voted_choice,
+            "strength":         voted_str,
+            "preference_value": voted_pref,
             "user_id":          st.session_state.user_id,
         }
         st.session_state.answers.append(ans)
         maybe_add_active_pair()
         st.session_state.pair_idx += 1
 
-        # ZAPIS DO BAZY — dopiero gdy student ukończy wszystkie 30 porównań
+        # ZAPIS DO BAZY — po ostatniej odpowiedzi, przed rerunem
         if st.session_state.pair_idx >= MAX_TOTAL_PAIRS and not st.session_state.saved_to_db:
-            try:
-                save_completed_answers(st.session_state.user_id, st.session_state.answers)
-                st.session_state.saved_to_db = True
-            except Exception as e:
-                st.warning(f"Odpowiedzi zostały zapamiętane, ale wystąpił błąd zapisu do bazy: {e}")
+            with st.spinner("Zapisuję odpowiedzi…"):
+                try:
+                    save_completed_answers(st.session_state.user_id, st.session_state.answers)
+                    st.session_state.saved_to_db = True
+                except Exception as e:
+                    st.error(f"Błąd zapisu do bazy: {e}")
+                    st.stop()
 
         st.rerun()
-
-    st.markdown("#### Który plan bardziej Ci odpowiada?")
-    b1, b2, b3, b4, b5 = st.columns(5)
-    with b1:
-        if st.button("⬅️⬅️\nZdecydowanie\nPlan A", use_container_width=True, key="vote_ll"):
-            _vote("left",  1.0,  "strong")
-    with b2:
-        if st.button("⬅️\nRaczej\nPlan A",          use_container_width=True, key="vote_l"):
-            _vote("left",  0.75, "slight")
-    with b3:
-        if st.button("⚖️\nBez\nróżnicy",             use_container_width=True, key="vote_eq"):
-            _vote("skip",  0.5,  "skip")
-    with b4:
-        if st.button("➡️\nRaczej\nPlan B",            use_container_width=True, key="vote_r"):
-            _vote("right", 0.25, "slight")
-    with b5:
-        if st.button("➡️➡️\nZdecydowanie\nPlan B",   use_container_width=True, key="vote_rr"):
-            _vote("right", 0.0,  "strong")
 
     st.stop()
 
