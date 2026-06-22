@@ -54,9 +54,6 @@ def register_user(name: str) -> Optional[int]:
             ).fetchone()
             conn.commit()
             return row[0]
-        except psycopg.errors.UniqueViolation:
-            conn.rollback()
-            return None
 
 def save_completed_answers(user_id: int, answers: List[Dict[str, Any]]) -> None:
     if not answers:

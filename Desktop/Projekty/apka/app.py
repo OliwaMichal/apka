@@ -263,8 +263,16 @@ if pair_idx < MAX_TOTAL_PAIRS and pair_idx < len(pairs):
         hide_index=True, use_container_width=True,
     )
 
-    def _vote(choice: str):
-        ans = build_answer(pair_idx, left, right, choice)
+    def _vote(choice: str, pref_value: float, strength: str):
+        ans = {
+            "pair_idx":         pair_idx,
+            "left_id":          left["candidate_id"],
+            "right_id":         right["candidate_id"],
+            "choice":           choice,
+            "strength":         strength,
+            "preference_value": pref_value,
+            "user_id":          st.session_state.user_id,
+        }
         st.session_state.answers.append(ans)
         maybe_add_active_pair()
         st.session_state.pair_idx += 1
@@ -279,16 +287,23 @@ if pair_idx < MAX_TOTAL_PAIRS and pair_idx < len(pairs):
 
         st.rerun()
 
-    b1, b2, b3 = st.columns(3)
+    st.markdown("#### Który plan bardziej Ci odpowiada?")
+    b1, b2, b3, b4, b5 = st.columns(5)
     with b1:
-        if st.button("⬅️ Wolę Plan A",  use_container_width=True, key="vote_left"):
-            _vote("left")
+        if st.button("⬅️⬅️\nZdecydowanie\nPlan A", use_container_width=True, key="vote_ll"):
+            _vote("left",  1.0,  "strong")
     with b2:
-        if st.button("⚖️ Bez różnicy",  use_container_width=True, key="vote_skip"):
-            _vote("skip")
+        if st.button("⬅️\nRaczej\nPlan A",          use_container_width=True, key="vote_l"):
+            _vote("left",  0.75, "slight")
     with b3:
-        if st.button("➡️ Wolę Plan B",  use_container_width=True, key="vote_right"):
-            _vote("right")
+        if st.button("⚖️\nBez\nróżnicy",             use_container_width=True, key="vote_eq"):
+            _vote("skip",  0.5,  "skip")
+    with b4:
+        if st.button("➡️\nRaczej\nPlan B",            use_container_width=True, key="vote_r"):
+            _vote("right", 0.25, "slight")
+    with b5:
+        if st.button("➡️➡️\nZdecydowanie\nPlan B",   use_container_width=True, key="vote_rr"):
+            _vote("right", 0.0,  "strong")
 
     st.stop()
 
