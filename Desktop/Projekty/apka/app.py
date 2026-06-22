@@ -363,7 +363,14 @@ if st.session_state.real_df is None:
 real_df = st.session_state.real_df
 
 # ─────────────────────────────────────────────────────────────────────────────
-# RANKING GLOBALNY RUNÓW
+# RANKING — tymczasowo wyłączony (last_generation.json niegotowy)
+# ─────────────────────────────────────────────────────────────────────────────
+st.success("✅ Twoje preferencje zostały zapisane. Dziękujemy za udział w badaniu!")
+render_admin_panel()
+st.stop()
+
+# ─────────────────────────────────────────────────────────────────────────────
+# RANKING GLOBALNY RUNÓW  (odkomentuj gdy last_generation.json będzie gotowy)
 # ─────────────────────────────────────────────────────────────────────────────
 
 st.divider()
