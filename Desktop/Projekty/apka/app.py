@@ -313,11 +313,13 @@ def parse_csv_to_schedule_rows(df: pd.DataFrame, run_name: str) -> List[Dict[str
         return ""
 
     def infer_direction(sg: str) -> str:
-        m = re.match(r"([A-Za-z]+)", sg)
-        return m.group(1).upper() if m else ""
+        # obsługuje: 3FSI-L1, FSI-L1, 2FSU-C2 — wyciąga litery ignorując cyfry na początku
+        m = re.search(r"([A-Za-z]{2,})", sg)
+        return m.group(1).upper() if m else sg.upper()
 
     def infer_year(sg: str) -> str:
-        m = re.search(r"(\d+)", sg)
+        # wyciąga cyfrę roku z początku nazwy: "3" z "3FSI-L1"
+        m = re.match(r"(\d+)", sg.strip())
         return m.group(1) if m else ""
 
     rows_out = []
