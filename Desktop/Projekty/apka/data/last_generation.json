@@ -1,0 +1,1360 @@
+{
+  "root": "C:\\FET\\wyniki\\20260524_205810_instance",
+  "session": "20260524_205810_instance",
+  "input_fet": "C:\\Users\\Michał\\Desktop\\Projekty\\MGR\\data\\instance.fet",
+  "input_basename": "instance",
+  "runs_requested": 2,
+  "runs_ok": [
+    "run_0001",
+    "run_0002"
+  ],
+  "runs_ok_count": 2,
+  "ranking_ready_runs": 2,
+  "timelimit": 21600,
+  "timelimit_hours": 6.0,
+  "export_csv": true,
+  "write_xml": true,
+  "verbose": true,
+  "failed": null,
+  "csv_paths": {
+    "run_0001": "C:\\FET\\wyniki\\20260524_205810_instance\\run_0001\\csv\\instance-highest\\instance_timetable.csv",
+    "run_0002": "C:\\FET\\wyniki\\20260524_205810_instance\\run_0002\\csv\\instance-highest\\instance_timetable.csv"
+  },
+  "fet_info": {
+    "file_name": "instance.fet",
+    "file_path": "C:\\Users\\Michał\\Desktop\\Projekty\\MGR\\data\\instance.fet",
+    "file_size_bytes": 3893022,
+    "version": "7.7.6",
+    "institution_name": "Politechnika Rzeszowska",
+    "days_count": 10,
+    "hours_count": 16,
+    "teachers_count": 99,
+    "years_count": 10,
+    "groups_count": 22,
+    "subgroups_count": 29,
+    "activities_count": 630,
+    "rooms_count": 58,
+    "buildings_count": 11,
+    "teacher_names_preview": [
+      "1-Nieznany Prowadzacy (XX)",
+      "Banaś Józef (FM)",
+      "Bednarz Paweł (FD)",
+      "Bednarz Urszula (FD)",
+      "Bilan Svitlana (ZH)",
+      "Bobko Jakub (ZI)",
+      "Bolanowski Marek (ES)",
+      "Bril Grzegorz (DL)",
+      "Bród Dorota (FD)",
+      "Chlebowicz Agnieszka (FM)",
+      "Chotorlishvili Levan (FF)",
+      "Ćmil Michał (ES)",
+      "Datsko Bohdan (FB)",
+      "Demidowski Krzysztof (ES)",
+      "Doroszkiewicz Małgorzata (DJ)"
+    ],
+    "teacher_names": [
+      "1-Nieznany Prowadzacy (XX)",
+      "Banaś Józef (FM)",
+      "Bednarz Paweł (FD)",
+      "Bednarz Urszula (FD)",
+      "Bilan Svitlana (ZH)",
+      "Bobko Jakub (ZI)",
+      "Bolanowski Marek (ES)",
+      "Bril Grzegorz (DL)",
+      "Bród Dorota (FD)",
+      "Chlebowicz Agnieszka (FM)",
+      "Chotorlishvili Levan (FF)",
+      "Ćmil Michał (ES)",
+      "Datsko Bohdan (FB)",
+      "Demidowski Krzysztof (ES)",
+      "Doroszkiewicz Małgorzata (DJ)",
+      "Dronka Janusz (FM)",
+      "Dubiel Agnieszka (FM)",
+      "Dudek Szymon (FM)",
+      "Dymora Paweł (ES)",
+      "Gardzińska Adrianna (DL)",
+      "Gerka Alicja (ES)",
+      "Grzesik Artur (FD)",
+      "Hadław Maciej (ZF)",
+      "Jagiełło Małgorzata (DJ)",
+      "Jaworski Dawid (FB)",
+      "Kania Katarzyna (DJ)",
+      "Kiczek Marek (ZE)",
+      "Kolasa Ewa (DJ)",
+      "Koryl Maciej (ET)",
+      "Kosiorowska Anna (FD)",
+      "Kosturek-Dybaś Kamila (DJ)",
+      "Kościółek Michał (ZE)",
+      "Kowal Bartosz (ES)",
+      "Kowalik Marcin (FF)",
+      "Król Karolina (FD)",
+      "Król Marta (FB)",
+      "Kucaba-Piętal Anna (ML)",
+      "Kudła Sylwia (FF)",
+      "Kuraś Paweł (ES)",
+      "Kusiak Maciej (DL)",
+      "Kutniv Myroslav (FB)",
+      "Kwiatkowski Bogdan (ET)",
+      "Lutak Maciej (DL)",
+      "Madera Michał (ES)",
+      "Michalski Adrian (FD)",
+      "Misiak Tomasz (ZE)",
+      "Młodochowska Katarzyna (DJ)",
+      "Moczuk Eugeniusz (ZH)",
+      "Nalepa Rafał (FM)",
+      "Napora Jarosław (FD)",
+      "Noga Stanisław (MK)",
+      "Nycz Ewelina (ZM)",
+      "Nycz Mariusz (ES)",
+      "Olszowy Leszek (FM)",
+      "Organiściak Patryk (ES)",
+      "Paja Natalia (FD)",
+      "Paluch Magdalena (DJ)",
+      "Paszkiewicz Andrzej (ES)",
+      "Piątkiewicz Paweł (DJ)",
+      "Piejko Krzysztof (FB)",
+      "Piętal Michał (ES)",
+      "Pirga Mateusz (FD)",
+      "Potocka Karolina (DJ)",
+      "Pupka Krzysztof (FM)",
+      "Rączka Dariusz (ES)",
+      "Rochecka Barbara (DJ)",
+      "Rubajczyk Mariola (FD)",
+      "Rybarska-Rusinek Liliana (FB)",
+      "Rysz Joanna (ES)",
+      "Rzepka Beata (FM)",
+      "Siwiec Karol (ES)",
+      "Sołtys Andrzej (ZH)",
+      "Sroka Grzegorz (FM)",
+      "Stachyra Tomasz (FD)",
+      "Stagraczyński Ryszard (FF)",
+      "Stagraczyński Stefan (FF)",
+      "Startek Mariusz (FB)",
+      "Stec Artur (ZE)",
+      "Stęchły Arkadiusz (ES)",
+      "Stopyra Mateusz (FB)",
+      "Strzałka Dominik (ES)",
+      "Szal Mateusz (DJ)",
+      "Szczupiel Justyna (FM)",
+      "Szetela Beata (ZI)",
+      "Szostek Kamil (ET)",
+      "Szynal-Liana Anetta (FD)",
+      "Trybus Mariusz (FF)",
+      "Wajnryb Dov (FM)",
+      "Walczyk Mariola (FM)",
+      "Warmińska Agata (ZO)",
+      "Wawrzkiewicz Justyna (DJ)",
+      "Więcek Tomasz (FC)",
+      "Wilczek Katarzyna (FB)",
+      "Witowicz Paweł (FM)",
+      "Włoch Andrzej (FB)",
+      "Włoch Iwona (FD)",
+      "Wojciechowska Iwona (ZM)",
+      "Wołowiec-Musiał Małgorzata (FD)",
+      "Nieznany prowadzący (FM)"
+    ],
+    "subgroup_names_preview": [
+      "2FKL-L1",
+      "2FKL-L2",
+      "1FKU-L1",
+      "2FKU-L1",
+      "1FSI-L1",
+      "1FSI-L2",
+      "1FSI-L3",
+      "1FSI-L4",
+      "1FSI-L5",
+      "1FSI-L6",
+      "1FSI-L7",
+      "1FSI-L8",
+      "2FSI-L1",
+      "2FSI-L2",
+      "2FSI-L3",
+      "2FSI-L4",
+      "2FSI-L5",
+      "2FSI-L6",
+      "3FSI-L1",
+      "3FSI-L2"
+    ],
+    "subgroup_names": [
+      "2FKL-L1",
+      "2FKL-L2",
+      "1FKU-L1",
+      "2FKU-L1",
+      "1FSI-L1",
+      "1FSI-L2",
+      "1FSI-L3",
+      "1FSI-L4",
+      "1FSI-L5",
+      "1FSI-L6",
+      "1FSI-L7",
+      "1FSI-L8",
+      "2FSI-L1",
+      "2FSI-L2",
+      "2FSI-L3",
+      "2FSI-L4",
+      "2FSI-L5",
+      "2FSI-L6",
+      "3FSI-L1",
+      "3FSI-L2",
+      "3FSI-L3",
+      "3FSI-L4",
+      "3FSI-L5",
+      "3FSI-L6",
+      "1FSU-L1",
+      "1FSU-L2",
+      "1FSU-L3",
+      "2FSU-L1",
+      "2FSU-L2"
+    ]
+  },
+  "runs": [
+    {
+      "run": 1,
+      "run_name": "run_0001",
+      "run_dir": "C:\\FET_CLUSTER\\20260524_205810\\results\\run_0001",
+      "returncode": 0,
+      "worker_used": "home_m_MASTER",
+      "duration_seconds": 21604.12,
+      "seeds": {
+        "10": 2746317213,
+        "11": 478163327,
+        "12": 107420369,
+        "20": 3184935163,
+        "21": 1181241943,
+        "22": 1051802512
+      },
+      "detected_outputs": {
+        "subgroups_xml": "C:\\FET_CLUSTER\\20260524_205810\\results\\run_0001\\timetables\\instance-current\\instance_subgroups.xml",
+        "teachers_xml": "C:\\FET_CLUSTER\\20260524_205810\\results\\run_0001\\timetables\\instance-current\\instance_teachers.xml",
+        "soft_conflicts": "C:\\FET_CLUSTER\\20260524_205810\\results\\run_0001\\timetables\\instance-current\\instance_soft_conflicts.txt"
+      },
+      "ranking_ready": true,
+      "files": [
+        {
+          "name": "instance_activities.csv",
+          "relative_path": "csv\\instance\\instance_activities.csv",
+          "size_bytes": 46331
+        },
+        {
+          "name": "instance_activity_tags.csv",
+          "relative_path": "csv\\instance\\instance_activity_tags.csv",
+          "size_bytes": 169
+        },
+        {
+          "name": "instance_rooms_and_buildings.csv",
+          "relative_path": "csv\\instance\\instance_rooms_and_buildings.csv",
+          "size_bytes": 1635
+        },
+        {
+          "name": "instance_statistics_activities.csv",
+          "relative_path": "csv\\instance\\instance_statistics_activities.csv",
+          "size_bytes": 34212
+        },
+        {
+          "name": "instance_students.csv",
+          "relative_path": "csv\\instance\\instance_students.csv",
+          "size_bytes": 2250
+        },
+        {
+          "name": "instance_subjects.csv",
+          "relative_path": "csv\\instance\\instance_subjects.csv",
+          "size_bytes": 10463
+        },
+        {
+          "name": "instance_teachers.csv",
+          "relative_path": "csv\\instance\\instance_teachers.csv",
+          "size_bytes": 2648
+        },
+        {
+          "name": "instance_timetable.csv",
+          "relative_path": "csv\\instance-current\\instance_timetable.csv",
+          "size_bytes": 150923
+        },
+        {
+          "name": "instance_timetable.csv",
+          "relative_path": "csv\\instance-highest\\instance_timetable.csv",
+          "size_bytes": 165818
+        },
+        {
+          "name": "difficult_activities.txt",
+          "relative_path": "logs\\difficult_activities.txt",
+          "size_bytes": 64929
+        },
+        {
+          "name": "file_open.log",
+          "relative_path": "logs\\file_open.log",
+          "size_bytes": 603
+        },
+        {
+          "name": "initial_order.txt",
+          "relative_path": "logs\\initial_order.txt",
+          "size_bytes": 103705
+        },
+        {
+          "name": "max_placed_activities.txt",
+          "relative_path": "logs\\max_placed_activities.txt",
+          "size_bytes": 33930
+        },
+        {
+          "name": "result.txt",
+          "relative_path": "logs\\result.txt",
+          "size_bytes": 160
+        },
+        {
+          "name": "warnings.txt",
+          "relative_path": "logs\\warnings.txt",
+          "size_bytes": 838
+        },
+        {
+          "name": "stderr.log",
+          "relative_path": "stderr.log",
+          "size_bytes": 0
+        },
+        {
+          "name": "stdout.log",
+          "relative_path": "stdout.log",
+          "size_bytes": 218026407
+        },
+        {
+          "name": "instance_random_seed_before.txt",
+          "relative_path": "timetables\\instance\\instance_random_seed_before.txt",
+          "size_bytes": 241
+        },
+        {
+          "name": "instance_activities.xml",
+          "relative_path": "timetables\\instance-current\\instance_activities.xml",
+          "size_bytes": 73818
+        },
+        {
+          "name": "instance_activities_days_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_activities_days_horizontal.html",
+          "size_bytes": 229791
+        },
+        {
+          "name": "instance_activities_days_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_activities_days_vertical.html",
+          "size_bytes": 229629
+        },
+        {
+          "name": "instance_activities_time_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_activities_time_horizontal.html",
+          "size_bytes": 236277
+        },
+        {
+          "name": "instance_activities_time_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_activities_time_vertical.html",
+          "size_bytes": 244534
+        },
+        {
+          "name": "instance_activity_tags_days_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_activity_tags_days_horizontal.html",
+          "size_bytes": 517915
+        },
+        {
+          "name": "instance_activity_tags_days_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_activity_tags_days_vertical.html",
+          "size_bytes": 515809
+        },
+        {
+          "name": "instance_activity_tags_time_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_activity_tags_time_horizontal.html",
+          "size_bytes": 502029
+        },
+        {
+          "name": "instance_activity_tags_time_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_activity_tags_time_vertical.html",
+          "size_bytes": 507344
+        },
+        {
+          "name": "instance_buildings_days_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_buildings_days_horizontal.html",
+          "size_bytes": 336384
+        },
+        {
+          "name": "instance_buildings_days_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_buildings_days_vertical.html",
+          "size_bytes": 334602
+        },
+        {
+          "name": "instance_buildings_time_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_buildings_time_horizontal.html",
+          "size_bytes": 324525
+        },
+        {
+          "name": "instance_buildings_time_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_buildings_time_vertical.html",
+          "size_bytes": 330334
+        },
+        {
+          "name": "instance_groups_days_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_groups_days_horizontal.html",
+          "size_bytes": 294701
+        },
+        {
+          "name": "instance_groups_days_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_groups_days_vertical.html",
+          "size_bytes": 291137
+        },
+        {
+          "name": "instance_groups_time_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_groups_time_horizontal.html",
+          "size_bytes": 261421
+        },
+        {
+          "name": "instance_groups_time_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_groups_time_vertical.html",
+          "size_bytes": 264513
+        },
+        {
+          "name": "instance_index.html",
+          "relative_path": "timetables\\instance-current\\instance_index.html",
+          "size_bytes": 5220
+        },
+        {
+          "name": "instance_rooms_days_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_rooms_days_horizontal.html",
+          "size_bytes": 393139
+        },
+        {
+          "name": "instance_rooms_days_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_rooms_days_vertical.html",
+          "size_bytes": 383743
+        },
+        {
+          "name": "instance_rooms_time_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_rooms_time_horizontal.html",
+          "size_bytes": 296047
+        },
+        {
+          "name": "instance_rooms_time_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_rooms_time_vertical.html",
+          "size_bytes": 290247
+        },
+        {
+          "name": "instance_soft_conflicts.txt",
+          "relative_path": "timetables\\instance-current\\instance_soft_conflicts.txt",
+          "size_bytes": 40377
+        },
+        {
+          "name": "instance_students_statistics.html",
+          "relative_path": "timetables\\instance-current\\instance_students_statistics.html",
+          "size_bytes": 11267
+        },
+        {
+          "name": "instance_stylesheet.css",
+          "relative_path": "timetables\\instance-current\\instance_stylesheet.css",
+          "size_bytes": 1448
+        },
+        {
+          "name": "instance_subgroups.xml",
+          "relative_path": "timetables\\instance-current\\instance_subgroups.xml",
+          "size_bytes": 816605
+        },
+        {
+          "name": "instance_subgroups_days_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_subgroups_days_horizontal.html",
+          "size_bytes": 310518
+        },
+        {
+          "name": "instance_subgroups_days_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_subgroups_days_vertical.html",
+          "size_bytes": 304848
+        },
+        {
+          "name": "instance_subgroups_time_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_subgroups_time_horizontal.html",
+          "size_bytes": 252973
+        },
+        {
+          "name": "instance_subgroups_time_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_subgroups_time_vertical.html",
+          "size_bytes": 252854
+        },
+        {
+          "name": "instance_subjects_days_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_subjects_days_horizontal.html",
+          "size_bytes": 1194385
+        },
+        {
+          "name": "instance_subjects_days_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_subjects_days_vertical.html",
+          "size_bytes": 1167817
+        },
+        {
+          "name": "instance_subjects_time_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_subjects_time_horizontal.html",
+          "size_bytes": 894469
+        },
+        {
+          "name": "instance_subjects_time_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_subjects_time_vertical.html",
+          "size_bytes": 862497
+        },
+        {
+          "name": "instance_teachers.xml",
+          "relative_path": "timetables\\instance-current\\instance_teachers.xml",
+          "size_bytes": 1081246
+        },
+        {
+          "name": "instance_teachers_days_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_teachers_days_horizontal.html",
+          "size_bytes": 626365
+        },
+        {
+          "name": "instance_teachers_days_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_teachers_days_vertical.html",
+          "size_bytes": 610327
+        },
+        {
+          "name": "instance_teachers_free_periods_days_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_teachers_free_periods_days_horizontal.html",
+          "size_bytes": 426863
+        },
+        {
+          "name": "instance_teachers_free_periods_days_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_teachers_free_periods_days_vertical.html",
+          "size_bytes": 426701
+        },
+        {
+          "name": "instance_teachers_statistics.html",
+          "relative_path": "timetables\\instance-current\\instance_teachers_statistics.html",
+          "size_bytes": 13641
+        },
+        {
+          "name": "instance_teachers_time_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_teachers_time_horizontal.html",
+          "size_bytes": 453432
+        },
+        {
+          "name": "instance_teachers_time_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_teachers_time_vertical.html",
+          "size_bytes": 437514
+        },
+        {
+          "name": "instance_years_days_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_years_days_horizontal.html",
+          "size_bytes": 225427
+        },
+        {
+          "name": "instance_years_days_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_years_days_vertical.html",
+          "size_bytes": 223807
+        },
+        {
+          "name": "instance_years_time_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_years_time_horizontal.html",
+          "size_bytes": 215169
+        },
+        {
+          "name": "instance_years_time_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_years_time_vertical.html",
+          "size_bytes": 221225
+        },
+        {
+          "name": "instance_activities.xml",
+          "relative_path": "timetables\\instance-highest\\instance_activities.xml",
+          "size_bytes": 75141
+        },
+        {
+          "name": "instance_activities_days_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_activities_days_horizontal.html",
+          "size_bytes": 250957
+        },
+        {
+          "name": "instance_activities_days_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_activities_days_vertical.html",
+          "size_bytes": 250795
+        },
+        {
+          "name": "instance_activities_time_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_activities_time_horizontal.html",
+          "size_bytes": 257443
+        },
+        {
+          "name": "instance_activities_time_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_activities_time_vertical.html",
+          "size_bytes": 265700
+        },
+        {
+          "name": "instance_activity_tags_days_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_activity_tags_days_horizontal.html",
+          "size_bytes": 564007
+        },
+        {
+          "name": "instance_activity_tags_days_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_activity_tags_days_vertical.html",
+          "size_bytes": 561901
+        },
+        {
+          "name": "instance_activity_tags_time_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_activity_tags_time_horizontal.html",
+          "size_bytes": 548121
+        },
+        {
+          "name": "instance_activity_tags_time_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_activity_tags_time_vertical.html",
+          "size_bytes": 553436
+        },
+        {
+          "name": "instance_buildings_days_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_buildings_days_horizontal.html",
+          "size_bytes": 357373
+        },
+        {
+          "name": "instance_buildings_days_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_buildings_days_vertical.html",
+          "size_bytes": 355591
+        },
+        {
+          "name": "instance_buildings_time_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_buildings_time_horizontal.html",
+          "size_bytes": 345514
+        },
+        {
+          "name": "instance_buildings_time_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_buildings_time_vertical.html",
+          "size_bytes": 351323
+        },
+        {
+          "name": "instance_groups_days_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_groups_days_horizontal.html",
+          "size_bytes": 313619
+        },
+        {
+          "name": "instance_groups_days_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_groups_days_vertical.html",
+          "size_bytes": 310055
+        },
+        {
+          "name": "instance_groups_time_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_groups_time_horizontal.html",
+          "size_bytes": 280339
+        },
+        {
+          "name": "instance_groups_time_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_groups_time_vertical.html",
+          "size_bytes": 283431
+        },
+        {
+          "name": "instance_index.html",
+          "relative_path": "timetables\\instance-highest\\instance_index.html",
+          "size_bytes": 5220
+        },
+        {
+          "name": "instance_rooms_days_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_rooms_days_horizontal.html",
+          "size_bytes": 399261
+        },
+        {
+          "name": "instance_rooms_days_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_rooms_days_vertical.html",
+          "size_bytes": 389865
+        },
+        {
+          "name": "instance_rooms_time_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_rooms_time_horizontal.html",
+          "size_bytes": 302169
+        },
+        {
+          "name": "instance_rooms_time_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_rooms_time_vertical.html",
+          "size_bytes": 296369
+        },
+        {
+          "name": "instance_soft_conflicts.txt",
+          "relative_path": "timetables\\instance-highest\\instance_soft_conflicts.txt",
+          "size_bytes": 11909
+        },
+        {
+          "name": "instance_students_statistics.html",
+          "relative_path": "timetables\\instance-highest\\instance_students_statistics.html",
+          "size_bytes": 11268
+        },
+        {
+          "name": "instance_stylesheet.css",
+          "relative_path": "timetables\\instance-highest\\instance_stylesheet.css",
+          "size_bytes": 1448
+        },
+        {
+          "name": "instance_subgroups.xml",
+          "relative_path": "timetables\\instance-highest\\instance_subgroups.xml",
+          "size_bytes": 864549
+        },
+        {
+          "name": "instance_subgroups_days_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_subgroups_days_horizontal.html",
+          "size_bytes": 319427
+        },
+        {
+          "name": "instance_subgroups_days_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_subgroups_days_vertical.html",
+          "size_bytes": 313757
+        },
+        {
+          "name": "instance_subgroups_time_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_subgroups_time_horizontal.html",
+          "size_bytes": 261882
+        },
+        {
+          "name": "instance_subgroups_time_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_subgroups_time_vertical.html",
+          "size_bytes": 261763
+        },
+        {
+          "name": "instance_subjects_days_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_subjects_days_horizontal.html",
+          "size_bytes": 1217453
+        },
+        {
+          "name": "instance_subjects_days_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_subjects_days_vertical.html",
+          "size_bytes": 1190885
+        },
+        {
+          "name": "instance_subjects_time_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_subjects_time_horizontal.html",
+          "size_bytes": 917537
+        },
+        {
+          "name": "instance_subjects_time_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_subjects_time_vertical.html",
+          "size_bytes": 885565
+        },
+        {
+          "name": "instance_teachers.xml",
+          "relative_path": "timetables\\instance-highest\\instance_teachers.xml",
+          "size_bytes": 1113740
+        },
+        {
+          "name": "instance_teachers_days_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_teachers_days_horizontal.html",
+          "size_bytes": 631604
+        },
+        {
+          "name": "instance_teachers_days_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_teachers_days_vertical.html",
+          "size_bytes": 615566
+        },
+        {
+          "name": "instance_teachers_free_periods_days_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_teachers_free_periods_days_horizontal.html",
+          "size_bytes": 424779
+        },
+        {
+          "name": "instance_teachers_free_periods_days_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_teachers_free_periods_days_vertical.html",
+          "size_bytes": 424617
+        },
+        {
+          "name": "instance_teachers_statistics.html",
+          "relative_path": "timetables\\instance-highest\\instance_teachers_statistics.html",
+          "size_bytes": 13643
+        },
+        {
+          "name": "instance_teachers_time_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_teachers_time_horizontal.html",
+          "size_bytes": 458671
+        },
+        {
+          "name": "instance_teachers_time_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_teachers_time_vertical.html",
+          "size_bytes": 442753
+        },
+        {
+          "name": "instance_years_days_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_years_days_horizontal.html",
+          "size_bytes": 245613
+        },
+        {
+          "name": "instance_years_days_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_years_days_vertical.html",
+          "size_bytes": 243993
+        },
+        {
+          "name": "instance_years_time_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_years_time_horizontal.html",
+          "size_bytes": 235355
+        },
+        {
+          "name": "instance_years_time_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_years_time_vertical.html",
+          "size_bytes": 241411
+        }
+      ]
+    },
+    {
+      "run": 2,
+      "run_name": "run_0002",
+      "run_dir": "\\\\Home_m\\fet_cluster\\20260524_205810\\results\\run_0002",
+      "returncode": 0,
+      "worker_used": "DESKTOP-EQJEL32",
+      "duration_seconds": 38237.28,
+      "seeds": {
+        "10": 958682846,
+        "11": 599310825,
+        "12": 3163119785,
+        "20": 440213415,
+        "21": 2906402157,
+        "22": 3181143731
+      },
+      "detected_outputs": {
+        "subgroups_xml": "\\\\Home_m\\fet_cluster\\20260524_205810\\results\\run_0002\\timetables\\instance-current\\instance_subgroups.xml",
+        "teachers_xml": "\\\\Home_m\\fet_cluster\\20260524_205810\\results\\run_0002\\timetables\\instance-current\\instance_teachers.xml",
+        "soft_conflicts": "\\\\Home_m\\fet_cluster\\20260524_205810\\results\\run_0002\\timetables\\instance-current\\instance_soft_conflicts.txt"
+      },
+      "ranking_ready": true,
+      "files": [
+        {
+          "name": "instance_activities.csv",
+          "relative_path": "csv\\instance\\instance_activities.csv",
+          "size_bytes": 46331
+        },
+        {
+          "name": "instance_activity_tags.csv",
+          "relative_path": "csv\\instance\\instance_activity_tags.csv",
+          "size_bytes": 169
+        },
+        {
+          "name": "instance_rooms_and_buildings.csv",
+          "relative_path": "csv\\instance\\instance_rooms_and_buildings.csv",
+          "size_bytes": 1635
+        },
+        {
+          "name": "instance_statistics_activities.csv",
+          "relative_path": "csv\\instance\\instance_statistics_activities.csv",
+          "size_bytes": 34212
+        },
+        {
+          "name": "instance_students.csv",
+          "relative_path": "csv\\instance\\instance_students.csv",
+          "size_bytes": 2250
+        },
+        {
+          "name": "instance_subjects.csv",
+          "relative_path": "csv\\instance\\instance_subjects.csv",
+          "size_bytes": 10463
+        },
+        {
+          "name": "instance_teachers.csv",
+          "relative_path": "csv\\instance\\instance_teachers.csv",
+          "size_bytes": 2648
+        },
+        {
+          "name": "instance_timetable.csv",
+          "relative_path": "csv\\instance-current\\instance_timetable.csv",
+          "size_bytes": 152977
+        },
+        {
+          "name": "instance_timetable.csv",
+          "relative_path": "csv\\instance-highest\\instance_timetable.csv",
+          "size_bytes": 165894
+        },
+        {
+          "name": "difficult_activities.txt",
+          "relative_path": "logs\\difficult_activities.txt",
+          "size_bytes": 65656
+        },
+        {
+          "name": "file_open.log",
+          "relative_path": "logs\\file_open.log",
+          "size_bytes": 609
+        },
+        {
+          "name": "initial_order.txt",
+          "relative_path": "logs\\initial_order.txt",
+          "size_bytes": 103705
+        },
+        {
+          "name": "max_placed_activities.txt",
+          "relative_path": "logs\\max_placed_activities.txt",
+          "size_bytes": 33716
+        },
+        {
+          "name": "result.txt",
+          "relative_path": "logs\\result.txt",
+          "size_bytes": 160
+        },
+        {
+          "name": "warnings.txt",
+          "relative_path": "logs\\warnings.txt",
+          "size_bytes": 586
+        },
+        {
+          "name": "stderr.log",
+          "relative_path": "stderr.log",
+          "size_bytes": 0
+        },
+        {
+          "name": "stdout.log",
+          "relative_path": "stdout.log",
+          "size_bytes": 253413859
+        },
+        {
+          "name": "instance_random_seed_before.txt",
+          "relative_path": "timetables\\instance\\instance_random_seed_before.txt",
+          "size_bytes": 240
+        },
+        {
+          "name": "instance_activities.xml",
+          "relative_path": "timetables\\instance-current\\instance_activities.xml",
+          "size_bytes": 74021
+        },
+        {
+          "name": "instance_activities_days_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_activities_days_horizontal.html",
+          "size_bytes": 232777
+        },
+        {
+          "name": "instance_activities_days_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_activities_days_vertical.html",
+          "size_bytes": 232615
+        },
+        {
+          "name": "instance_activities_time_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_activities_time_horizontal.html",
+          "size_bytes": 239263
+        },
+        {
+          "name": "instance_activities_time_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_activities_time_vertical.html",
+          "size_bytes": 247520
+        },
+        {
+          "name": "instance_activity_tags_days_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_activity_tags_days_horizontal.html",
+          "size_bytes": 523627
+        },
+        {
+          "name": "instance_activity_tags_days_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_activity_tags_days_vertical.html",
+          "size_bytes": 521521
+        },
+        {
+          "name": "instance_activity_tags_time_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_activity_tags_time_horizontal.html",
+          "size_bytes": 507741
+        },
+        {
+          "name": "instance_activity_tags_time_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_activity_tags_time_vertical.html",
+          "size_bytes": 513056
+        },
+        {
+          "name": "instance_buildings_days_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_buildings_days_horizontal.html",
+          "size_bytes": 339802
+        },
+        {
+          "name": "instance_buildings_days_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_buildings_days_vertical.html",
+          "size_bytes": 338020
+        },
+        {
+          "name": "instance_buildings_time_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_buildings_time_horizontal.html",
+          "size_bytes": 327943
+        },
+        {
+          "name": "instance_buildings_time_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_buildings_time_vertical.html",
+          "size_bytes": 333752
+        },
+        {
+          "name": "instance_groups_days_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_groups_days_horizontal.html",
+          "size_bytes": 297076
+        },
+        {
+          "name": "instance_groups_days_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_groups_days_vertical.html",
+          "size_bytes": 293512
+        },
+        {
+          "name": "instance_groups_time_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_groups_time_horizontal.html",
+          "size_bytes": 263796
+        },
+        {
+          "name": "instance_groups_time_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_groups_time_vertical.html",
+          "size_bytes": 266888
+        },
+        {
+          "name": "instance_index.html",
+          "relative_path": "timetables\\instance-current\\instance_index.html",
+          "size_bytes": 5220
+        },
+        {
+          "name": "instance_rooms_days_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_rooms_days_horizontal.html",
+          "size_bytes": 393974
+        },
+        {
+          "name": "instance_rooms_days_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_rooms_days_vertical.html",
+          "size_bytes": 384578
+        },
+        {
+          "name": "instance_rooms_time_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_rooms_time_horizontal.html",
+          "size_bytes": 296882
+        },
+        {
+          "name": "instance_rooms_time_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_rooms_time_vertical.html",
+          "size_bytes": 291082
+        },
+        {
+          "name": "instance_soft_conflicts.txt",
+          "relative_path": "timetables\\instance-current\\instance_soft_conflicts.txt",
+          "size_bytes": 37662
+        },
+        {
+          "name": "instance_students_statistics.html",
+          "relative_path": "timetables\\instance-current\\instance_students_statistics.html",
+          "size_bytes": 11277
+        },
+        {
+          "name": "instance_stylesheet.css",
+          "relative_path": "timetables\\instance-current\\instance_stylesheet.css",
+          "size_bytes": 1448
+        },
+        {
+          "name": "instance_subgroups.xml",
+          "relative_path": "timetables\\instance-current\\instance_subgroups.xml",
+          "size_bytes": 827651
+        },
+        {
+          "name": "instance_subgroups_days_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_subgroups_days_horizontal.html",
+          "size_bytes": 312585
+        },
+        {
+          "name": "instance_subgroups_days_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_subgroups_days_vertical.html",
+          "size_bytes": 306915
+        },
+        {
+          "name": "instance_subgroups_time_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_subgroups_time_horizontal.html",
+          "size_bytes": 255040
+        },
+        {
+          "name": "instance_subgroups_time_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_subgroups_time_vertical.html",
+          "size_bytes": 254921
+        },
+        {
+          "name": "instance_subjects_days_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_subjects_days_horizontal.html",
+          "size_bytes": 1197517
+        },
+        {
+          "name": "instance_subjects_days_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_subjects_days_vertical.html",
+          "size_bytes": 1170949
+        },
+        {
+          "name": "instance_subjects_time_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_subjects_time_horizontal.html",
+          "size_bytes": 897601
+        },
+        {
+          "name": "instance_subjects_time_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_subjects_time_vertical.html",
+          "size_bytes": 865629
+        },
+        {
+          "name": "instance_teachers.xml",
+          "relative_path": "timetables\\instance-current\\instance_teachers.xml",
+          "size_bytes": 1085862
+        },
+        {
+          "name": "instance_teachers_days_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_teachers_days_horizontal.html",
+          "size_bytes": 627049
+        },
+        {
+          "name": "instance_teachers_days_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_teachers_days_vertical.html",
+          "size_bytes": 611011
+        },
+        {
+          "name": "instance_teachers_free_periods_days_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_teachers_free_periods_days_horizontal.html",
+          "size_bytes": 426675
+        },
+        {
+          "name": "instance_teachers_free_periods_days_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_teachers_free_periods_days_vertical.html",
+          "size_bytes": 426513
+        },
+        {
+          "name": "instance_teachers_statistics.html",
+          "relative_path": "timetables\\instance-current\\instance_teachers_statistics.html",
+          "size_bytes": 13644
+        },
+        {
+          "name": "instance_teachers_time_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_teachers_time_horizontal.html",
+          "size_bytes": 454116
+        },
+        {
+          "name": "instance_teachers_time_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_teachers_time_vertical.html",
+          "size_bytes": 438198
+        },
+        {
+          "name": "instance_years_days_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_years_days_horizontal.html",
+          "size_bytes": 228221
+        },
+        {
+          "name": "instance_years_days_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_years_days_vertical.html",
+          "size_bytes": 226601
+        },
+        {
+          "name": "instance_years_time_horizontal.html",
+          "relative_path": "timetables\\instance-current\\instance_years_time_horizontal.html",
+          "size_bytes": 217963
+        },
+        {
+          "name": "instance_years_time_vertical.html",
+          "relative_path": "timetables\\instance-current\\instance_years_time_vertical.html",
+          "size_bytes": 224019
+        },
+        {
+          "name": "instance_activities.xml",
+          "relative_path": "timetables\\instance-highest\\instance_activities.xml",
+          "size_bytes": 75183
+        },
+        {
+          "name": "instance_activities_days_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_activities_days_horizontal.html",
+          "size_bytes": 251050
+        },
+        {
+          "name": "instance_activities_days_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_activities_days_vertical.html",
+          "size_bytes": 250888
+        },
+        {
+          "name": "instance_activities_time_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_activities_time_horizontal.html",
+          "size_bytes": 257536
+        },
+        {
+          "name": "instance_activities_time_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_activities_time_vertical.html",
+          "size_bytes": 265793
+        },
+        {
+          "name": "instance_activity_tags_days_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_activity_tags_days_horizontal.html",
+          "size_bytes": 564254
+        },
+        {
+          "name": "instance_activity_tags_days_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_activity_tags_days_vertical.html",
+          "size_bytes": 562148
+        },
+        {
+          "name": "instance_activity_tags_time_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_activity_tags_time_horizontal.html",
+          "size_bytes": 548368
+        },
+        {
+          "name": "instance_activity_tags_time_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_activity_tags_time_vertical.html",
+          "size_bytes": 553683
+        },
+        {
+          "name": "instance_buildings_days_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_buildings_days_horizontal.html",
+          "size_bytes": 356645
+        },
+        {
+          "name": "instance_buildings_days_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_buildings_days_vertical.html",
+          "size_bytes": 354863
+        },
+        {
+          "name": "instance_buildings_time_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_buildings_time_horizontal.html",
+          "size_bytes": 344786
+        },
+        {
+          "name": "instance_buildings_time_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_buildings_time_vertical.html",
+          "size_bytes": 350595
+        },
+        {
+          "name": "instance_groups_days_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_groups_days_horizontal.html",
+          "size_bytes": 314672
+        },
+        {
+          "name": "instance_groups_days_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_groups_days_vertical.html",
+          "size_bytes": 311108
+        },
+        {
+          "name": "instance_groups_time_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_groups_time_horizontal.html",
+          "size_bytes": 281392
+        },
+        {
+          "name": "instance_groups_time_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_groups_time_vertical.html",
+          "size_bytes": 284484
+        },
+        {
+          "name": "instance_index.html",
+          "relative_path": "timetables\\instance-highest\\instance_index.html",
+          "size_bytes": 5220
+        },
+        {
+          "name": "instance_rooms_days_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_rooms_days_horizontal.html",
+          "size_bytes": 399261
+        },
+        {
+          "name": "instance_rooms_days_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_rooms_days_vertical.html",
+          "size_bytes": 389865
+        },
+        {
+          "name": "instance_rooms_time_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_rooms_time_horizontal.html",
+          "size_bytes": 302169
+        },
+        {
+          "name": "instance_rooms_time_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_rooms_time_vertical.html",
+          "size_bytes": 296369
+        },
+        {
+          "name": "instance_soft_conflicts.txt",
+          "relative_path": "timetables\\instance-highest\\instance_soft_conflicts.txt",
+          "size_bytes": 10650
+        },
+        {
+          "name": "instance_students_statistics.html",
+          "relative_path": "timetables\\instance-highest\\instance_students_statistics.html",
+          "size_bytes": 11261
+        },
+        {
+          "name": "instance_stylesheet.css",
+          "relative_path": "timetables\\instance-highest\\instance_stylesheet.css",
+          "size_bytes": 1448
+        },
+        {
+          "name": "instance_subgroups.xml",
+          "relative_path": "timetables\\instance-highest\\instance_subgroups.xml",
+          "size_bytes": 864573
+        },
+        {
+          "name": "instance_subgroups_days_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_subgroups_days_horizontal.html",
+          "size_bytes": 319442
+        },
+        {
+          "name": "instance_subgroups_days_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_subgroups_days_vertical.html",
+          "size_bytes": 313772
+        },
+        {
+          "name": "instance_subgroups_time_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_subgroups_time_horizontal.html",
+          "size_bytes": 261897
+        },
+        {
+          "name": "instance_subgroups_time_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_subgroups_time_vertical.html",
+          "size_bytes": 261778
+        },
+        {
+          "name": "instance_subjects_days_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_subjects_days_horizontal.html",
+          "size_bytes": 1217481
+        },
+        {
+          "name": "instance_subjects_days_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_subjects_days_vertical.html",
+          "size_bytes": 1190913
+        },
+        {
+          "name": "instance_subjects_time_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_subjects_time_horizontal.html",
+          "size_bytes": 917565
+        },
+        {
+          "name": "instance_subjects_time_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_subjects_time_vertical.html",
+          "size_bytes": 885593
+        },
+        {
+          "name": "instance_teachers.xml",
+          "relative_path": "timetables\\instance-highest\\instance_teachers.xml",
+          "size_bytes": 1113768
+        },
+        {
+          "name": "instance_teachers_days_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_teachers_days_horizontal.html",
+          "size_bytes": 631620
+        },
+        {
+          "name": "instance_teachers_days_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_teachers_days_vertical.html",
+          "size_bytes": 615582
+        },
+        {
+          "name": "instance_teachers_free_periods_days_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_teachers_free_periods_days_horizontal.html",
+          "size_bytes": 423963
+        },
+        {
+          "name": "instance_teachers_free_periods_days_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_teachers_free_periods_days_vertical.html",
+          "size_bytes": 423801
+        },
+        {
+          "name": "instance_teachers_statistics.html",
+          "relative_path": "timetables\\instance-highest\\instance_teachers_statistics.html",
+          "size_bytes": 13642
+        },
+        {
+          "name": "instance_teachers_time_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_teachers_time_horizontal.html",
+          "size_bytes": 458687
+        },
+        {
+          "name": "instance_teachers_time_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_teachers_time_vertical.html",
+          "size_bytes": 442769
+        },
+        {
+          "name": "instance_years_days_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_years_days_horizontal.html",
+          "size_bytes": 245174
+        },
+        {
+          "name": "instance_years_days_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_years_days_vertical.html",
+          "size_bytes": 243554
+        },
+        {
+          "name": "instance_years_time_horizontal.html",
+          "relative_path": "timetables\\instance-highest\\instance_years_time_horizontal.html",
+          "size_bytes": 234916
+        },
+        {
+          "name": "instance_years_time_vertical.html",
+          "relative_path": "timetables\\instance-highest\\instance_years_time_vertical.html",
+          "size_bytes": 240972
+        }
+      ]
+    }
+  ]
+}

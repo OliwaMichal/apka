@@ -1954,3 +1954,31 @@ def build_real_candidates(root: Path, last_gen_path: Path) -> pd.DataFrame:
 
     df_out = pd.DataFrame(rows)
     return df_out.drop_duplicates(subset=["candidate_id"]).reset_index(drop=True)
+
+def build_real_candidates_from_db(df: pd.DataFrame):
+    groups = []
+
+    for subgroup, g in df.groupby("subgroup"):
+        cell_map = {}
+
+        for _, row in g.iterrows():
+            key = (row["day"], row["hour"])
+
+            if key not in cell_map:
+                cell_map[key] = []
+
+            cell_map[key].append({
+                "subject": row["subject"],
+                "teachers": [row["teacher"]],
+                "room": row["room"],
+                "tags": []
+            })
+
+        groups.append({
+            "subgroup": subgroup,
+            "cell_map": cell_map,
+            "days": sorted(df["day"].unique()),
+            "hours": sorted(df["hour"].unique())
+        })
+
+    return pd.DataFrame(groups)
