@@ -423,11 +423,34 @@ def render_admin_panel():
             if not check_admin_password(pw):
                 st.error("Złe hasło — nie można zapisać rozkładów.")
             else:
+                # Pole do nadania własnych nazw runom (gdy pliki mają tę samą nazwę)
+                st.caption("Nazwy runów (edytuj jeśli wgrywasz kilka plików o tej samej nazwie):")
+                run_name_inputs = {}
+                seen_stems = {}
+                for f in uploaded_csvs:
+                    stem = Path(f.name).stem
+                    if stem in seen_stems:
+                        seen_stems[stem] += 1
+                        default_name = f"{stem}_run{seen_stems[stem]}"
+                    else:
+                        seen_stems[stem] = 1
+                        default_name = stem
+                    run_name_inputs[f.file_id] = st.text_input(
+                        f"Nazwa runu dla: {f.name}",
+                        value=default_name,
+                        key=f"run_name_{f.file_id}",
+                    )
+
                 if st.button("💾 Wgraj i zastąp rozkłady", key="admin_save_btn"):
                     all_rows = []
                     errors = []
+                    used_names = set()
                     for f in uploaded_csvs:
-                        run_name = Path(f.name).stem
+                        run_name = run_name_inputs[f.file_id].strip() or Path(f.name).stem
+                        # zabezpieczenie przed duplikatami po ręcznej edycji
+                        if run_name in used_names:
+                            run_name = f"{run_name}_{len(used_names)}"
+                        used_names.add(run_name)
                         try:
                             df_csv = pd.read_csv(f, sep=None, engine="python",
                                                  encoding="utf-8-sig")
@@ -444,7 +467,7 @@ def render_admin_panel():
                         with st.spinner(f"Zapisuję {len(all_rows)} rozkładów do bazy…"):
                             n = clear_and_save_schedules(all_rows)
                         st.success(f"✅ Zapisano {n} rozkładów. Stare dane zastąpione.")
-                        st.session_state.real_df = None  # wymusz przeładowanie
+                        st.session_state.real_df = None
 
 # ─────────────────────────────────────────────────────────────────────────────
 # EKRAN STARTOWY
