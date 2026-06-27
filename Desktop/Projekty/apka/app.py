@@ -481,10 +481,8 @@ st.caption("Porównaj kilka planów zajęć, a system dopasuje najlepszą grupę
 if not st.session_state.started:
     st.markdown("### Witaj! Podaj swoje imię, aby rozpocząć.")
     st.info("Twoje imię jest Twoim unikalnym identyfikatorem — wybierz coś charakterystycznego (np. imię + inicjał nazwiska).")
-    name_input = st.text_input("Imię / pseudonim", placeholder="np. Michał K.")
-
-    st.markdown("---")
-    st.markdown("### 📂 Masz już wcześniejsze odpowiedzi?")
+    # ── sekcja importu JSON (imie wyciagamy z pliku) ──────────────────────────
+    st.markdown("### 📂 Masz już swoje odpowiedzi z poprzedniej sesji?")
     st.caption("Wgraj plik JSON pobrany po poprzednim wypełnieniu — pominiesz 30 porównań i od razu zobaczysz ranking.")
     uploaded_json = st.file_uploader("Wgraj plik JSON z odpowiedziami", type=["json"], key="import_json")
 
@@ -492,23 +490,43 @@ if not st.session_state.started:
         try:
             data_imported = json.load(uploaded_json)
             if isinstance(data_imported, list) and len(data_imported) > 0 and isinstance(data_imported[0], dict):
+                # wyciagamy imie z pliku jesli jest zapisane
+                name_from_file = ""
+                if "user_name" in data_imported[0]:
+                    name_from_file = str(data_imported[0]["user_name"]).strip()
+
+                if name_from_file:
+                    st.info(f"Wykryto użytkownika z pliku: **{name_from_file}**")
+                    name_for_import = name_from_file
+                else:
+                    name_for_import = st.text_input(
+                        "Podaj imię (nie znaleziono w pliku)",
+                        placeholder="np. Michał K.",
+                        key="name_from_import",
+                    )
+
                 if st.button("▶️ Załaduj odpowiedzi i przejdź do rankingu", use_container_width=True):
-                    if not name_input.strip():
-                        st.warning("Podaj imię przed załadowaniem odpowiedzi.")
+                    if not name_for_import.strip():
+                        st.warning("Nie można ustalić imienia — wpisz je ręcznie powyżej.")
                     else:
-                        user_id = register_user(name_input.strip())
+                        # rejestrujemy z unikalnym sufiksem jezeli nazwa zajeta
+                        _base = name_for_import.strip()
+                        user_id = register_user(_base)
                         if user_id is None:
-                            st.error(f"Nazwa **{name_input.strip()}** jest już zajęta.")
+                            import uuid as _uuid
+                            _base = f"{_base}_{_uuid.uuid4().hex[:4]}"
+                            user_id = register_user(_base)
+                        if user_id is None:
+                            st.error("Nie udało się zarejestrować — spróbuj ponownie.")
                         else:
-                            st.session_state.user_id        = user_id
-                            st.session_state.user_name      = name_input.strip()
-                            st.session_state.answers        = data_imported
-                            st.session_state.pair_idx       = MAX_TOTAL_PAIRS
-                            st.session_state.started        = True
-                            st.session_state.saved_to_db    = True
-                            st.session_state.ready_to_rank  = True
+                            st.session_state.user_id          = user_id
+                            st.session_state.user_name        = _base
+                            st.session_state.answers          = data_imported
+                            st.session_state.pair_idx         = MAX_TOTAL_PAIRS
+                            st.session_state.started          = True
+                            st.session_state.saved_to_db      = True
+                            st.session_state.ready_to_rank    = True
                             st.session_state.imported_answers = True
-                            # od razu zapisz do bazy
                             try:
                                 save_completed_answers(user_id, data_imported)
                             except Exception:
@@ -520,7 +538,9 @@ if not st.session_state.started:
             st.error(f"Błąd wczytywania pliku: {e}")
 
     st.markdown("---")
-    if st.button("▶️ Rozpocznij od nowa (30 porównań)", use_container_width=True):
+    st.markdown("### ✏️ Wypełnij ankietę od nowa (30 porównań)")
+    name_input = st.text_input("Imię / pseudonim", placeholder="np. Michał K.")
+    if st.button("▶️ Rozpocznij", use_container_width=True):
         if not name_input.strip():
             st.warning("Podaj imię, aby kontynuować.")
             st.stop()
